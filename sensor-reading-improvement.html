@@ -7487,6 +7487,8 @@ a.anchor-link {
 <span class="c1"># !pip install scikit-learn</span>
 <span class="c1"># !pip install numpy</span>
 <span class="c1"># !pip install tensorflow</span>
+<span class="c1"># !pip install matplotlib</span>
+<span class="c1"># !pip install seaborn</span>
 </pre></div>
 </div>
 </div>
@@ -7504,7 +7506,7 @@ a.anchor-link {
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
 <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span><span class="p">,</span> <span class="n">mean_absolute_error</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
@@ -7535,7 +7537,7 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">boxmod_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">boxmod_data</span>
 <span class="c1"># boxmod_data.tail()</span>
 </pre></div>
 </div>
@@ -7593,19 +7595,19 @@ a.anchor-link {
 <tbody>
 <tr>
 <th>0</th>
-<td>3510.0</td>
-<td>1400.0</td>
-<td>1090.0</td>
+<td>3510.00</td>
+<td>1400.00</td>
+<td>1090.00</td>
 <td>2330.0</td>
 <td>1920.0</td>
-<td>1180.0</td>
+<td>1180.00</td>
 <td>1100.0</td>
 <td>1860.0</td>
 <td>2170.0</td>
-<td>1900.0</td>
+<td>1900.000</td>
 <td>...</td>
-<td>915.0</td>
-<td>2050.0</td>
+<td>915.00</td>
+<td>2050.000</td>
 <td>2420.0</td>
 <td>2080.0</td>
 <td>1930.0</td>
@@ -7617,19 +7619,19 @@ a.anchor-link {
 </tr>
 <tr>
 <th>1</th>
-<td>3330.0</td>
-<td>1380.0</td>
-<td>1000.0</td>
+<td>3330.00</td>
+<td>1380.00</td>
+<td>1000.00</td>
 <td>2060.0</td>
 <td>1980.0</td>
-<td>1090.0</td>
+<td>1090.00</td>
 <td>1050.0</td>
 <td>1760.0</td>
 <td>2240.0</td>
-<td>1830.0</td>
+<td>1830.000</td>
 <td>...</td>
-<td>845.0</td>
-<td>1860.0</td>
+<td>845.00</td>
+<td>1860.000</td>
 <td>2280.0</td>
 <td>2020.0</td>
 <td>1820.0</td>
@@ -7641,19 +7643,19 @@ a.anchor-link {
 </tr>
 <tr>
 <th>2</th>
-<td>3140.0</td>
-<td>1300.0</td>
-<td>1130.0</td>
+<td>3140.00</td>
+<td>1300.00</td>
+<td>1130.00</td>
 <td>1910.0</td>
 <td>1850.0</td>
-<td>988.0</td>
+<td>988.00</td>
 <td>1000.0</td>
 <td>1540.0</td>
 <td>2030.0</td>
-<td>1610.0</td>
+<td>1610.000</td>
 <td>...</td>
-<td>801.0</td>
-<td>1910.0</td>
+<td>801.00</td>
+<td>1910.000</td>
 <td>1940.0</td>
 <td>1920.0</td>
 <td>1650.0</td>
@@ -7665,19 +7667,19 @@ a.anchor-link {
 </tr>
 <tr>
 <th>3</th>
-<td>3030.0</td>
-<td>1140.0</td>
-<td>757.0</td>
+<td>3030.00</td>
+<td>1140.00</td>
+<td>757.00</td>
 <td>1790.0</td>
 <td>1760.0</td>
-<td>935.0</td>
+<td>935.00</td>
 <td>949.0</td>
 <td>1660.0</td>
 <td>1810.0</td>
-<td>1750.0</td>
+<td>1750.000</td>
 <td>...</td>
-<td>771.0</td>
-<td>1710.0</td>
+<td>771.00</td>
+<td>1710.000</td>
 <td>1800.0</td>
 <td>1840.0</td>
 <td>1570.0</td>
@@ -7689,19 +7691,19 @@ a.anchor-link {
 </tr>
 <tr>
 <th>4</th>
-<td>2790.0</td>
-<td>1240.0</td>
-<td>673.0</td>
+<td>2790.00</td>
+<td>1240.00</td>
+<td>673.00</td>
 <td>1830.0</td>
 <td>1530.0</td>
-<td>980.0</td>
+<td>980.00</td>
 <td>922.0</td>
 <td>1450.0</td>
 <td>1710.0</td>
-<td>1570.0</td>
+<td>1570.000</td>
 <td>...</td>
-<td>655.0</td>
-<td>1640.0</td>
+<td>655.00</td>
+<td>1640.000</td>
 <td>1820.0</td>
 <td>1620.0</td>
 <td>1600.0</td>
@@ -7711,9 +7713,153 @@ a.anchor-link {
 <td>1640.0</td>
 <td>1630.0</td>
 </tr>
+<tr>
+<th>...</th>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<th>1412</th>
+<td>1.31</td>
+<td>0.00</td>
+<td>0.01</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.01</td>
+<td>0.0</td>
+<td>23.4</td>
+<td>-35.6</td>
+<td>-27.500</td>
+<td>...</td>
+<td>55.20</td>
+<td>0.000</td>
+<td>100.0</td>
+<td>38.5</td>
+<td>0.0</td>
+<td>59.5</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>1413</th>
+<td>-0.07</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>2.32</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.000</td>
+<td>...</td>
+<td>0.06</td>
+<td>0.000</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>24.7</td>
+</tr>
+<tr>
+<th>1414</th>
+<td>1.00</td>
+<td>0.00</td>
+<td>-25.70</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.01</td>
+<td>51.9</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.000</td>
+<td>...</td>
+<td>0.05</td>
+<td>-0.273</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>10.8</td>
+<td>0.0</td>
+<td>-25.6</td>
+<td>0.0</td>
+<td>-15.8</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>1415</th>
+<td>-1.08</td>
+<td>-8.19</td>
+<td>0.00</td>
+<td>-11.8</td>
+<td>12.5</td>
+<td>0.00</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.000</td>
+<td>...</td>
+<td>1.14</td>
+<td>0.000</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>12.1</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<th>1416</th>
+<td>0.39</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>29.60</td>
+<td>0.0</td>
+<td>13.5</td>
+<td>-30.4</td>
+<td>-0.841</td>
+<td>...</td>
+<td>0.05</td>
+<td>0.000</td>
+<td>125.0</td>
+<td>44.2</td>
+<td>0.0</td>
+<td>91.8</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
 </tbody>
 </table>
-<p>5 rows × 32 columns</p>
+<p>1417 rows × 32 columns</p>
 </div>
 </div>
 </div>
@@ -8107,7 +8253,8 @@ a.anchor-link {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">X_boxmod_train</span><span class="p">,</span> <span class="n">X_boxmod_test</span><span class="p">,</span> <span class="n">y_boxmod_train</span><span class="p">,</span> <span class="n">y_boxmod_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_boxmod</span><span class="p">,</span> <span class="n">y_boxmod</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">X_boxmod_train</span><span class="p">,</span> <span class="n">X_boxmod_test</span><span class="p">,</span> <span class="n">y_boxmod_train</span><span class="p">,</span> <span class="n">y_boxmod_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_boxmod</span><span class="p">,</span> <span class="n">y_boxmod</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">X_juul_train</span><span class="p">,</span> <span class="n">X_juul_test</span><span class="p">,</span> <span class="n">y_juul_train</span><span class="p">,</span> <span class="n">y_juul_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_juul</span><span class="p">,</span> <span class="n">y_juul</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8118,10 +8265,10 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">X_juul_train</span><span class="p">,</span> <span class="n">X_juul_test</span><span class="p">,</span> <span class="n">y_juul_train</span><span class="p">,</span> <span class="n">y_juul_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_juul</span><span class="p">,</span> <span class="n">y_juul</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
 </div>
@@ -8132,7 +8279,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
@@ -8150,7 +8297,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">evaluation</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_test_scaled</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">dataset_name</span><span class="p">):</span>
@@ -8194,7 +8341,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">()</span>
@@ -8208,7 +8355,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Train the model on BoxMod training data</span>
@@ -8223,7 +8370,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <style>#sk-container-id-1 {color: black;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div class="sk-top-container" id="sk-container-id-1"><div class="sk-text-repr-fallback"><pre>RandomForestRegressor()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br/>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input checked="" class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-1">RandomForestRegressor</label><div class="sk-toggleable__content"><pre>RandomForestRegressor()</pre></div></div></div></div></div>
 </div>
@@ -8235,7 +8382,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">evaluation</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_boxmod_test_scaled</span><span class="p">,</span> <span class="n">y_boxmod_test</span><span class="p">,</span> <span class="s2">"BoxMod"</span><span class="p">)</span>
@@ -8251,8 +8398,8 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>BoxMod - R2 Score: 0.9665683652583067
-BoxMod - RMSE: 398.8169325379025
+<pre>BoxMod - R2 Score: 0.9642645613271038
+BoxMod - RMSE: 423.9366662322902
 </pre>
 </div>
 </div>
@@ -8263,7 +8410,7 @@ BoxMod - RMSE: 398.8169325379025
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">evaluation_cross</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_boxmod_test_scaled</span><span class="p">,</span> <span class="n">y_boxmod_test</span><span class="p">,</span> <span class="s2">"BoxMod"</span><span class="p">)</span>
@@ -8279,8 +8426,8 @@ BoxMod - RMSE: 398.8169325379025
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Average R2 Score for BoxMod: 0.94554365441811
-Average RMSE for BoxMod data: 502.05634650414675
+<pre>Average R2 Score for BoxMod: 0.949735698196646
+Average RMSE for BoxMod data: 490.0658095305074
 </pre>
 </div>
 </div>
@@ -8305,104 +8452,35 @@ Average RMSE for BoxMod data: 502.05634650414675
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">evaluation</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_juul_test_scaled</span><span class="p">,</span> <span class="n">y_juul_test</span><span class="p">,</span> <span class="s2">"JUUL"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>JUUL - R2 Score: 0.738611691623603
+JUUL - RMSE: 167.05565149078225
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=047b66d0-c9e2-4cf1-9ca6-6f78983d30cd">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">evaluation</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_juul_test_scaled</span><span class="p">,</span> <span class="n">y_juul_test</span><span class="p">,</span> <span class="s2">"JUUL"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>JUUL - R2 Score: 0.6956784770862996
-JUUL - RMSE: 174.6010915924428
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=047b66d0-c9e2-4cf1-9ca6-6f78983d30cd">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># evaluation_cross(model, X_juul_test_scaled, y_juul_test, "JUUL")</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=02e8a08d-91a9-4bc3-b7e7-0b8700dc602b">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Fine-tuning on JUUL training data</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_juul_train_scaled</span><span class="p">,</span> <span class="n">y_juul_train</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<style>#sk-container-id-2 {color: black;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div class="sk-top-container" id="sk-container-id-2"><div class="sk-text-repr-fallback"><pre>RandomForestRegressor()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br/>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input checked="" class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-2">RandomForestRegressor</label><div class="sk-toggleable__content"><pre>RandomForestRegressor()</pre></div></div></div></div></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0a724dfc-139a-45c6-8646-c02f11ba4e49">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">evaluation</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_juul_test_scaled</span><span class="p">,</span> <span class="n">y_juul_test</span><span class="p">,</span> <span class="s2">"JUUL"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>JUUL - R2 Score: 0.9796580912554063
-JUUL - RMSE: 45.14155041384553
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3ee46099-dce9-4cca-84fc-87bf4850f373">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">evaluation_cross</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_juul_test_scaled</span><span class="p">,</span> <span class="n">y_juul_test</span><span class="p">,</span> <span class="s2">"JUUL"</span><span class="p">)</span>
@@ -8418,8 +8496,91 @@ JUUL - RMSE: 45.14155041384553
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Average R2 Score for JUUL: 0.9683487281995712
-Average RMSE for JUUL data: 55.61974430680273
+<pre>Average R2 Score for JUUL: 0.9676793488844465
+Average RMSE for JUUL data: 55.86888499352949
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=02e8a08d-91a9-4bc3-b7e7-0b8700dc602b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Fine-tuning on JUUL training data</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_juul_train_scaled</span><span class="p">,</span> <span class="n">y_juul_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<style>#sk-container-id-2 {color: black;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div class="sk-top-container" id="sk-container-id-2"><div class="sk-text-repr-fallback"><pre>RandomForestRegressor()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br/>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input checked="" class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox"/><label class="sk-toggleable__label sk-toggleable__label-arrow" for="sk-estimator-id-2">RandomForestRegressor</label><div class="sk-toggleable__content"><pre>RandomForestRegressor()</pre></div></div></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=0a724dfc-139a-45c6-8646-c02f11ba4e49">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">evaluation</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_juul_test_scaled</span><span class="p">,</span> <span class="n">y_juul_test</span><span class="p">,</span> <span class="s2">"JUUL"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>JUUL - R2 Score: 0.9737021354506391
+JUUL - RMSE: 52.98809855470811
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3ee46099-dce9-4cca-84fc-87bf4850f373">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">evaluation_cross</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_juul_test_scaled</span><span class="p">,</span> <span class="n">y_juul_test</span><span class="p">,</span> <span class="s2">"JUUL"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Average R2 Score for JUUL: 0.9690909395390408
+Average RMSE for JUUL data: 55.185807041664496
 </pre>
 </div>
 </div>
@@ -8500,12 +8661,13 @@ Average RMSE for JUUL data: 55.61974430680273
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Dropout</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.callbacks</span> <span class="kn">import</span> <span class="n">EarlyStopping</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Dropout</span><span class="p">,</span> <span class="n">BatchNormalization</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.regularizers</span> <span class="kn">import</span> <span class="n">l2</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.callbacks</span> <span class="kn">import</span> <span class="n">EarlyStopping</span><span class="p">,</span> <span class="n">LearningRateScheduler</span>
 <span class="kn">from</span> <span class="nn">tensorflow.keras.optimizers.legacy</span> <span class="kn">import</span> <span class="n">Adam</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
 </pre></div>
@@ -8513,7 +8675,28 @@ Average RMSE for JUUL data: 55.61974430680273
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=af6a8eaf-242a-415e-a05e-c49b984a0d97">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=07bd83a2-9ba9-4830-bb89-099c5f70d78d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">boxmod_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">boxmod_data</span><span class="p">)</span>
+<span class="n">juul_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">juul_data</span><span class="p">)</span>
+
+<span class="n">X_boxmod_scaled</span> <span class="o">=</span> <span class="n">boxmod_scaled</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span>
+<span class="n">y_boxmod_scaled</span> <span class="o">=</span> <span class="n">boxmod_scaled</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">X_juul_scaled</span> <span class="o">=</span> <span class="n">juul_scaled</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span>
+<span class="n">y_juul_scaled</span> <span class="o">=</span> <span class="n">juul_scaled</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=055db4a3-e318-4e11-8b3a-5ad856d65e3e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -8521,9 +8704,54 @@ Average RMSE for JUUL data: 55.61974430680273
 <div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
-<span class="n">X_boxmod_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_boxmod</span><span class="p">)</span>
-<span class="n">X_juul_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_juul</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># scaler = StandardScaler()</span>
+<span class="c1"># X_boxmod_scaled = scaler.fit_transform(X_boxmod)</span>
+<span class="c1"># X_juul_scaled = scaler.transform(X_juul)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c56c4cce-52bc-4fa5-8959-a68079237475">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">lr_time_based_decay</span><span class="p">(</span><span class="n">epoch</span><span class="p">,</span> <span class="n">lr</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">lr</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">epoch</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f959a0fc-a492-48a5-a7fa-63f242b0aa8a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">create_model</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+    
+    <span class="c1"># model.add(Dense(32, input_dim=X.shape[1], activation='tanh'))</span>
+    <span class="c1"># model.add(Dropout(0.2))</span>
+    <span class="c1"># model.add(Dense(20, activation='tanh'))</span>
+    <span class="c1"># model.add(Dense(1, activation='linear'))</span>
+    
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">,</span> <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">BatchNormalization</span><span class="p">())</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">,</span> <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">BatchNormalization</span><span class="p">())</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">,</span> <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">,</span> <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'linear'</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">model</span>
 </pre></div>
 </div>
 </div>
@@ -8534,7 +8762,7 @@ Average RMSE for JUUL data: 55.61974430680273
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">perform_kfold_cv</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -8544,17 +8772,13 @@ Average RMSE for JUUL data: 55.61974430680273
     
     <span class="k">for</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">kfold</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="c1"># Create the model</span>
-        <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-        <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
-        <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
-        <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
-        <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'linear'</span><span class="p">))</span>  <span class="c1"># Linear activation for regression</span>
-    
-        <span class="c1"># Compile the model</span>
-        <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">'mean_squared_error'</span><span class="p">)</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+        <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">Adam</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">),</span> <span class="n">loss</span><span class="o">=</span><span class="s1">'mean_squared_error'</span><span class="p">)</span>
     
         <span class="c1"># Fit the model</span>
         <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    
     
         <span class="c1"># Evaluate the model</span>
         <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">test</span><span class="p">])</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
@@ -8583,10 +8807,10 @@ Average RMSE for JUUL data: 55.61974430680273
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">perform_kfold_cv</span><span class="p">(</span><span class="n">X_boxmod_scaled</span><span class="p">,</span> <span class="n">y_boxmod</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">perform_kfold_cv</span><span class="p">(</span><span class="n">X_boxmod_scaled</span><span class="p">,</span> <span class="n">y_boxmod_scaled</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8599,15 +8823,15 @@ Average RMSE for JUUL data: 55.61974430680273
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>9/9 [==============================] - 0s 309us/step
-9/9 [==============================] - 0s 332us/step
-9/9 [==============================] - 0s 321us/step
-9/9 [==============================] - 0s 304us/step
-9/9 [==============================] - 0s 331us/step
-Average MSE: 280730.4156375802
-Standard Deviation of MSE: 59092.42862527706
-Average R2: 0.9469836801846471
-Standard Deviation of R2: 0.0074044386681163315
+<pre>9/9 [==============================] - 0s 397us/step
+9/9 [==============================] - 0s 376us/step
+9/9 [==============================] - 0s 411us/step
+9/9 [==============================] - 0s 392us/step
+9/9 [==============================] - 0s 398us/step
+Average MSE: 0.04213571542677522
+Standard Deviation of MSE: 0.012815244816743005
+Average R2: 0.9582146439825887
+Standard Deviation of R2: 0.01110594581011831
 </pre>
 </div>
 </div>
@@ -8618,10 +8842,10 @@ Standard Deviation of R2: 0.0074044386681163315
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">perform_kfold_cv</span><span class="p">(</span><span class="n">X_juul_scaled</span><span class="p">,</span> <span class="n">y_juul</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">perform_kfold_cv</span><span class="p">(</span><span class="n">X_juul_scaled</span><span class="p">,</span> <span class="n">y_juul_scaled</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8634,15 +8858,15 @@ Standard Deviation of R2: 0.0074044386681163315
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>9/9 [==============================] - 0s 315us/step
-9/9 [==============================] - 0s 313us/step
-9/9 [==============================] - 0s 316us/step
-9/9 [==============================] - 0s 321us/step
-9/9 [==============================] - 0s 322us/step
-Average MSE: 2507.426806499519
-Standard Deviation of MSE: 508.4259370874592
-Average R2: 0.975035603032584
-Standard Deviation of R2: 0.004710411355313271
+<pre>9/9 [==============================] - 0s 378us/step
+9/9 [==============================] - 0s 381us/step
+9/9 [==============================] - 0s 385us/step
+9/9 [==============================] - 0s 424us/step
+9/9 [==============================] - 0s 389us/step
+Average MSE: 0.0037543583173176194
+Standard Deviation of MSE: 0.004726034028740222
+Average R2: 0.8126451330386418
+Standard Deviation of R2: 0.22461773007301467
 </pre>
 </div>
 </div>
@@ -8681,16 +8905,12 @@ Standard Deviation of R2: 0.004710411355313271
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">train_base_model</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">))</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'linear'</span><span class="p">))</span>  <span class="c1"># Output layer for regression</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">'mean_squared_error'</span><span class="p">)</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">Adam</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">),</span> <span class="n">loss</span><span class="o">=</span><span class="s1">'mean_squared_error'</span><span class="p">)</span>
     <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">model</span>
 </pre></div>
@@ -8703,7 +8923,7 @@ Standard Deviation of R2: 0.004710411355313271
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">perform_transfer_learning_kfold_cv</span><span class="p">(</span><span class="n">X_juul</span><span class="p">,</span> <span class="n">y_juul</span><span class="p">,</span> <span class="n">base_model</span><span class="p">):</span>
@@ -8744,10 +8964,10 @@ Standard Deviation of R2: 0.004710411355313271
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">base_model</span> <span class="o">=</span> <span class="n">train_base_model</span><span class="p">(</span><span class="n">X_boxmod_scaled</span><span class="p">,</span> <span class="n">y_boxmod</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">base_model</span> <span class="o">=</span> <span class="n">train_base_model</span><span class="p">(</span><span class="n">X_boxmod_scaled</span><span class="p">,</span> <span class="n">y_boxmod_scaled</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8758,10 +8978,10 @@ Standard Deviation of R2: 0.004710411355313271
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">perform_transfer_learning_kfold_cv</span><span class="p">(</span><span class="n">X_juul_scaled</span><span class="p">,</span> <span class="n">y_juul</span><span class="p">,</span> <span class="n">base_model</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">perform_transfer_learning_kfold_cv</span><span class="p">(</span><span class="n">X_juul_scaled</span><span class="p">,</span> <span class="n">y_juul_scaled</span><span class="p">,</span> <span class="n">base_model</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8774,15 +8994,15 @@ Standard Deviation of R2: 0.004710411355313271
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>9/9 [==============================] - 0s 330us/step
-9/9 [==============================] - 0s 314us/step
-9/9 [==============================] - 0s 318us/step
-9/9 [==============================] - 0s 315us/step
-9/9 [==============================] - 0s 325us/step
-Average MSE: 2615.7219698864737
-Standard Deviation of MSE: 423.4040866428747
-Average R2: 0.9736367332480758
-Standard Deviation of R2: 0.004919168558411501
+<pre>9/9 [==============================] - 0s 398us/step
+9/9 [==============================] - 0s 411us/step
+9/9 [==============================] - 0s 396us/step
+9/9 [==============================] - 0s 377us/step
+9/9 [==============================] - 0s 383us/step
+Average MSE: 0.010076417539838449
+Standard Deviation of MSE: 0.009140348187841428
+Average R2: 0.40964387201451685
+Standard Deviation of R2: 0.616388742767913
 </pre>
 </div>
 </div>
@@ -8816,7 +9036,1070 @@ Standard Deviation of R2: 0.004919168558411501
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=81ae9cf6-5d31-4cc5-b45d-3ed6d44b3cc0">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c11b3d59-ecde-4f65-b847-7daf1f2d8867">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=81ae9cf6-5d31-4cc5-b45d-3ed6d44b3cc0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+
+<span class="c1"># Function to perform KMeans clustering and return cluster labels</span>
+<span class="k">def</span> <span class="nf">cluster_sensors</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n_clusters</span><span class="p">):</span>
+    <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+    <span class="n">kmeans</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span>
+
+<span class="c1"># number of clusters</span>
+<span class="n">n_clusters</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># Perform clustering on the BoxMod and JUUL datasets</span>
+<span class="n">boxmod_clusters</span> <span class="o">=</span> <span class="n">cluster_sensors</span><span class="p">(</span><span class="n">boxmod_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">n_clusters</span><span class="p">)</span>  <span class="c1"># Exclude the ground truth column</span>
+<span class="n">juul_clusters</span> <span class="o">=</span> <span class="n">cluster_sensors</span><span class="p">(</span><span class="n">juul_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">n_clusters</span><span class="p">)</span>       <span class="c1"># Exclude the ground truth column</span>
+
+<span class="c1"># Add the cluster information as a new feature to the datasets</span>
+<span class="n">boxmod_data_with_clusters</span> <span class="o">=</span> <span class="n">boxmod_data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">juul_data_with_clusters</span> <span class="o">=</span> <span class="n">juul_data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">cluster_label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">boxmod_clusters</span><span class="p">):</span>
+    <span class="n">boxmod_data_with_clusters</span><span class="p">[</span><span class="sa">f</span><span class="s1">'Sensor_</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">_Cluster'</span><span class="p">]</span> <span class="o">=</span> <span class="n">cluster_label</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">cluster_label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">juul_clusters</span><span class="p">):</span>
+    <span class="n">juul_data_with_clusters</span><span class="p">[</span><span class="sa">f</span><span class="s1">'Sensor_</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">_Cluster'</span><span class="p">]</span> <span class="o">=</span> <span class="n">cluster_label</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>/Users/sajjadaboutalebi/Documents/juplab/venv/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:1416: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  super()._check_params_vs_input(X, default_n_init=10)
+/Users/sajjadaboutalebi/Documents/juplab/venv/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:1416: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
+  super()._check_params_vs_input(X, default_n_init=10)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7a803b94-0b01-4241-a144-78a5c6a446e5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">boxmod_data_with_clusters</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>...</th>
+<th>Sensor_22_Cluster</th>
+<th>Sensor_23_Cluster</th>
+<th>Sensor_24_Cluster</th>
+<th>Sensor_25_Cluster</th>
+<th>Sensor_26_Cluster</th>
+<th>Sensor_27_Cluster</th>
+<th>Sensor_28_Cluster</th>
+<th>Sensor_29_Cluster</th>
+<th>Sensor_30_Cluster</th>
+<th>Sensor_31_Cluster</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>3510.0</td>
+<td>1400.0</td>
+<td>1090.0</td>
+<td>2330.0</td>
+<td>1920.0</td>
+<td>1180.0</td>
+<td>1100.0</td>
+<td>1860.0</td>
+<td>2170.0</td>
+<td>1900.0</td>
+<td>...</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<th>1</th>
+<td>3330.0</td>
+<td>1380.0</td>
+<td>1000.0</td>
+<td>2060.0</td>
+<td>1980.0</td>
+<td>1090.0</td>
+<td>1050.0</td>
+<td>1760.0</td>
+<td>2240.0</td>
+<td>1830.0</td>
+<td>...</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<th>2</th>
+<td>3140.0</td>
+<td>1300.0</td>
+<td>1130.0</td>
+<td>1910.0</td>
+<td>1850.0</td>
+<td>988.0</td>
+<td>1000.0</td>
+<td>1540.0</td>
+<td>2030.0</td>
+<td>1610.0</td>
+<td>...</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<th>3</th>
+<td>3030.0</td>
+<td>1140.0</td>
+<td>757.0</td>
+<td>1790.0</td>
+<td>1760.0</td>
+<td>935.0</td>
+<td>949.0</td>
+<td>1660.0</td>
+<td>1810.0</td>
+<td>1750.0</td>
+<td>...</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<th>4</th>
+<td>2790.0</td>
+<td>1240.0</td>
+<td>673.0</td>
+<td>1830.0</td>
+<td>1530.0</td>
+<td>980.0</td>
+<td>922.0</td>
+<td>1450.0</td>
+<td>1710.0</td>
+<td>1570.0</td>
+<td>...</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>5 rows × 63 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=1988079f-692a-48b9-99b3-fc059638cd26">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">juul_data_with_clusters</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>...</th>
+<th>Sensor_22_Cluster</th>
+<th>Sensor_23_Cluster</th>
+<th>Sensor_24_Cluster</th>
+<th>Sensor_25_Cluster</th>
+<th>Sensor_26_Cluster</th>
+<th>Sensor_27_Cluster</th>
+<th>Sensor_28_Cluster</th>
+<th>Sensor_29_Cluster</th>
+<th>Sensor_30_Cluster</th>
+<th>Sensor_31_Cluster</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>102.0</td>
+<td>37.0</td>
+<td>4.12</td>
+<td>27.5</td>
+<td>30.5</td>
+<td>38.0</td>
+<td>29.3</td>
+<td>29.80</td>
+<td>35.3</td>
+<td>40.9</td>
+<td>...</td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<th>1</th>
+<td>102.0</td>
+<td>21.1</td>
+<td>23.10</td>
+<td>26.4</td>
+<td>28.9</td>
+<td>37.0</td>
+<td>28.0</td>
+<td>6.47</td>
+<td>32.1</td>
+<td>40.9</td>
+<td>...</td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<th>2</th>
+<td>78.1</td>
+<td>36.1</td>
+<td>21.10</td>
+<td>24.5</td>
+<td>26.2</td>
+<td>33.6</td>
+<td>27.0</td>
+<td>27.60</td>
+<td>29.7</td>
+<td>39.6</td>
+<td>...</td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<th>3</th>
+<td>62.4</td>
+<td>35.5</td>
+<td>20.30</td>
+<td>25.6</td>
+<td>24.8</td>
+<td>31.2</td>
+<td>23.8</td>
+<td>24.40</td>
+<td>31.1</td>
+<td>38.1</td>
+<td>...</td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<th>4</th>
+<td>55.9</td>
+<td>23.7</td>
+<td>-2.50</td>
+<td>22.9</td>
+<td>23.2</td>
+<td>32.1</td>
+<td>24.6</td>
+<td>23.30</td>
+<td>30.3</td>
+<td>37.0</td>
+<td>...</td>
+<td>2</td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>5 rows × 63 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=20519df4-eed3-4657-8db8-fdb6e9fdc3ef">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">boxmod_data_with_clusters</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">boxmod_data_with_clusters</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<span class="n">X_boxmod_clusters</span> <span class="o">=</span> <span class="n">boxmod_data_with_clusters</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">boxmod_data_with_clusters</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>  <span class="c1"># Drop the ground truth column</span>
+<span class="n">y_boxmod_clusters</span> <span class="o">=</span> <span class="n">boxmod_data_with_clusters</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># Ground truth is the first column</span>
+
+<span class="c1"># Splitting the BoxMod dataset with clusters into training and testing sets</span>
+<span class="n">X_train_boxmod_clusters</span><span class="p">,</span> <span class="n">X_test_boxmod_clusters</span><span class="p">,</span> <span class="n">y_train_boxmod_clusters</span><span class="p">,</span> <span class="n">y_test_boxmod_clusters</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_boxmod_clusters</span><span class="p">,</span> <span class="n">y_boxmod_clusters</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
+
+<span class="c1"># Initialize and train the Random Forest Regressor on the BoxMod dataset with cluster information</span>
+<span class="n">rf_regressor_clusters</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">()</span>
+<span class="n">rf_regressor_clusters</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_boxmod_clusters</span><span class="p">,</span> <span class="n">y_train_boxmod_clusters</span><span class="p">)</span>
+
+<span class="n">evaluation_cross</span><span class="p">(</span><span class="n">rf_regressor_clusters</span><span class="p">,</span> <span class="n">X_test_boxmod_clusters</span><span class="p">,</span> <span class="n">y_test_boxmod_clusters</span><span class="p">,</span> <span class="s2">"BoxMod"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Average R2 Score for BoxMod: 0.9322038457742725
+Average RMSE for BoxMod data: 552.5118800098429
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=557746bc-c171-4f5d-9f75-d5f9c2e96a0d">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7159af6a-f55e-4f94-bc87-0644a99bcd70">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPRegressor</span>
+
+<span class="c1"># calculate rolling averages with a window size of 3</span>
+<span class="n">rolling_avg_boxmod</span> <span class="o">=</span> <span class="n">boxmod_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Combining the original features with the new statistical features</span>
+<span class="n">combined_features_boxmod</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">boxmod_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">rolling_avg_boxmod</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Normalizing the combined features</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">normalized_features_boxmod</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">combined_features_boxmod</span><span class="p">)</span>
+
+<span class="c1"># Applying PCA for dimensionality reduction</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mf">0.95</span><span class="p">)</span>  <span class="c1"># Retain 95% of the variance</span>
+<span class="n">reduced_features_boxmod</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">normalized_features_boxmod</span><span class="p">)</span>
+
+<span class="c1"># Splitting the reduced dataset into training and testing sets</span>
+<span class="n">X_train_reduced</span><span class="p">,</span> <span class="n">X_test_reduced</span><span class="p">,</span> <span class="n">y_train_reduced</span><span class="p">,</span> <span class="n">y_test_reduced</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">reduced_features_boxmod</span><span class="p">,</span> <span class="n">y_boxmod</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
+
+<span class="c1"># Training a Neural Network (MLPRegressor)</span>
+<span class="n">mlp_regressor</span> <span class="o">=</span> <span class="n">MLPRegressor</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,),</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">early_stopping</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">mlp_regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_reduced</span><span class="p">,</span> <span class="n">y_train_reduced</span><span class="p">)</span>
+
+<span class="n">evaluation_cross</span><span class="p">(</span><span class="n">mlp_regressor</span><span class="p">,</span> <span class="n">X_test_reduced</span><span class="p">,</span> <span class="n">y_test_reduced</span><span class="p">,</span> <span class="s2">"BoxMod"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Average R2 Score for BoxMod: 0.8186380577180998
+Average RMSE for BoxMod data: 929.7763549793228
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9f9aa9bf-21d4-4e6d-a34f-191af42e4b04">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e5e1c58e-070c-44e6-b956-5f6742d75802">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [37]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingRegressor</span>
+
+<span class="c1"># Initialize the Random Forest and Gradient Boosting models</span>
+<span class="n">rf_regressor_reduced</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">gb_regressor_reduced</span> <span class="o">=</span> <span class="n">GradientBoostingRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Train the Random Forest model on the reduced BoxMod dataset</span>
+<span class="n">rf_regressor_reduced</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_reduced</span><span class="p">,</span> <span class="n">y_train_reduced</span><span class="p">)</span>
+
+<span class="n">evaluation_cross</span><span class="p">(</span><span class="n">rf_regressor_reduced</span><span class="p">,</span> <span class="n">X_test_reduced</span><span class="p">,</span> <span class="n">y_test_reduced</span><span class="p">,</span> <span class="s2">"BoxMod"</span><span class="p">)</span>
+
+
+<span class="c1"># Train the Gradient Boosting model on the reduced BoxMod dataset</span>
+<span class="n">gb_regressor_reduced</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_reduced</span><span class="p">,</span> <span class="n">y_train_reduced</span><span class="p">)</span>
+
+<span class="n">evaluation_cross</span><span class="p">(</span><span class="n">gb_regressor_reduced</span><span class="p">,</span> <span class="n">X_test_reduced</span><span class="p">,</span> <span class="n">y_test_reduced</span><span class="p">,</span> <span class="s2">"BoxMod"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Average R2 Score for BoxMod: 0.9258274480511679
+Average RMSE for BoxMod data: 582.6263278244007
+Average R2 Score for BoxMod: 0.9213707941924026
+Average RMSE for BoxMod data: 593.7213236767715
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=4a874284-177d-4fb6-8562-a58f8936bcd1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8795592e-d98a-41dd-a6c6-eddb10a9d919">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [38]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Number of lags (past time steps) to consider for lag features</span>
+<span class="n">n_lags</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># Window size for rolling statistics</span>
+<span class="n">rolling_window_size</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># Creating lag features for the BoxMod dataset</span>
+<span class="n">lag_features_boxmod</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">boxmod_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_lags</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Creating rolling window features for the BoxMod dataset</span>
+<span class="n">rolling_features_boxmod</span> <span class="o">=</span> <span class="n">boxmod_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">rolling_window_size</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Combining the original features with the lag and rolling features</span>
+<span class="n">combined_ts_features_boxmod</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">boxmod_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">lag_features_boxmod</span><span class="p">,</span> <span class="n">rolling_features_boxmod</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="c1"># New target values corresponding to the rows with lag features</span>
+<span class="n">new_y_boxmod</span> <span class="o">=</span> <span class="n">boxmod_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">n_lags</span><span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Splitting the dataset into training and testing sets</span>
+<span class="n">X_train_ts</span><span class="p">,</span> <span class="n">X_test_ts</span><span class="p">,</span> <span class="n">y_train_ts</span><span class="p">,</span> <span class="n">y_test_ts</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">combined_ts_features_boxmod</span><span class="p">,</span> <span class="n">new_y_boxmod</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
+
+<span class="c1"># Training a Random Forest model on the new dataset with time series features</span>
+<span class="n">rf_regressor_ts</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">rf_regressor_ts</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_ts</span><span class="p">,</span> <span class="n">y_train_ts</span><span class="p">)</span>
+
+<span class="c1"># Calculating performance metrics</span>
+<span class="n">evaluation_cross</span><span class="p">(</span><span class="n">rf_regressor_ts</span><span class="p">,</span> <span class="n">X_test_ts</span><span class="p">,</span> <span class="n">y_test_ts</span><span class="p">,</span> <span class="s2">"BoxMod"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Average R2 Score for BoxMod: 0.9384118158564949
+Average RMSE for BoxMod data: 535.7498422156126
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=8787cd4d-0435-49ce-88e4-9bdb52ab021a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [39]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">lag_features_juul</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">juul_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_lags</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">rolling_features_juul</span> <span class="o">=</span> <span class="n">juul_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">rolling_window_size</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">combined_ts_features_juul</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">juul_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">lag_features_juul</span><span class="p">,</span> <span class="n">rolling_features_juul</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">new_y_juul</span> <span class="o">=</span> <span class="n">juul_data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">n_lags</span><span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Calculating performance metrics on Juul dataset</span>
+<span class="n">evaluation_cross</span><span class="p">(</span><span class="n">rf_regressor_ts</span><span class="p">,</span> <span class="n">combined_ts_features_juul</span><span class="p">,</span> <span class="n">new_y_juul</span><span class="p">,</span> <span class="s2">"Juul"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Average R2 Score for Juul: 0.9529489477153665
+Average RMSE for Juul data: 63.93063815980838
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=7098feb4-ecb5-4de0-8623-abd19c2142e7">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=6f51e69f-0e7a-480f-9056-c1f7b9696916">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=1608c264-d423-4f86-953c-4958ff0ea766">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=002d33f4-725d-4fde-9d18-5424fe81cd2b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [40]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">LSTM</span><span class="p">,</span> <span class="n">Dense</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=cc76940d-041c-4954-88a1-f7deccd68310">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [41]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">boxmod_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">boxmod_data</span><span class="p">)</span>
+<span class="n">juul_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">juul_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f6fdf49f-b66b-4706-8800-0d39ba3b09e0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [42]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">create_dataset</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">look_back</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="n">look_back</span><span class="p">):</span>
+        <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">:(</span><span class="n">i</span> <span class="o">+</span> <span class="n">look_back</span><span class="p">),</span> <span class="mi">1</span><span class="p">:])</span>
+        <span class="n">Y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">look_back</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ed8ea36b-0761-495e-a0f5-d143c027bd7e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [43]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">perform_kfold_time_cv</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">look_back</span><span class="p">):</span>
+    <span class="n">kfold</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">mse_scores</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">r2_scores</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">n_features</span> <span class="o">=</span> <span class="mi">31</span>
+    
+    <span class="k">for</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">kfold</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="c1"># Create the model</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">look_back</span><span class="p">,</span> <span class="n">n_features</span><span class="p">)))</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">'adam'</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">'mean_squared_error'</span><span class="p">)</span>
+
+        <span class="c1"># Compile the model</span>
+        <span class="n">optimizer</span> <span class="o">=</span> <span class="n">Adam</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">'mean_squared_error'</span><span class="p">)</span>
+    
+        <span class="c1"># Fit the model</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        
+        <span class="c1"># Evaluate the model</span>
+        <span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">test</span><span class="p">])</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+        <span class="n">mse_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">))</span>
+        <span class="n">r2_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">))</span>
+
+    
+    <span class="c1"># Calculate average and standard deviation of MSE</span>
+    <span class="n">average_mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mse_scores</span><span class="p">)</span>
+    <span class="n">std_dev_mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">mse_scores</span><span class="p">)</span>
+    <span class="n">average_r2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">r2_scores</span><span class="p">)</span>
+    <span class="n">std_dev_r2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">r2_scores</span><span class="p">)</span>
+
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Average MSE:"</span><span class="p">,</span> <span class="n">average_mse</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Standard Deviation of MSE:"</span><span class="p">,</span> <span class="n">std_dev_mse</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Average R2:"</span><span class="p">,</span> <span class="n">average_r2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Standard Deviation of R2:"</span><span class="p">,</span> <span class="n">std_dev_r2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=14ef7a2d-e3ca-415f-9dd9-fd291afd2988">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [44]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">look_back</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">create_dataset</span><span class="p">(</span><span class="n">boxmod_scaled</span><span class="p">,</span> <span class="n">look_back</span><span class="p">)</span>
+<span class="n">model_lstm_boxmod</span> <span class="o">=</span> <span class="n">perform_kfold_time_cv</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">look_back</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>9/9 [==============================] - 0s 779us/step
+9/9 [==============================] - 0s 760us/step
+9/9 [==============================] - 0s 748us/step
+9/9 [==============================] - 0s 769us/step
+9/9 [==============================] - 0s 769us/step
+Average MSE: 0.0336269547168218
+Standard Deviation of MSE: 0.005741276292514699
+Average R2: 0.9659005556358057
+Standard Deviation of R2: 0.0079864281965799
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7b88442e-fd16-4e7d-a1ba-17ad9758596b">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [45]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">X_lstm_juul</span><span class="p">,</span> <span class="n">y_lstm_juul</span> <span class="o">=</span> <span class="n">create_dataset</span><span class="p">(</span><span class="n">juul_scaled</span><span class="p">,</span> <span class="n">look_back</span><span class="p">)</span>
+<span class="n">y_pred_lstm_juul</span> <span class="o">=</span> <span class="n">model_lstm_boxmod</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_lstm_juul</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_lstm_juul</span><span class="p">,</span> <span class="n">y_pred_lstm_juul</span><span class="p">),</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_lstm_juul</span><span class="p">,</span> <span class="n">y_pred_lstm_juul</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>41/41 [==============================] - 0s 576us/step
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[45]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>(0.12341004672891072, 0.8771733607216408)</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=f2c062d2-9902-457d-883c-9aa20bcab0f3">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=40e14ccc-984a-42c3-b85e-d70a002e78eb">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [46]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">look_back</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">create_dataset</span><span class="p">(</span><span class="n">juul_scaled</span><span class="p">,</span> <span class="n">look_back</span><span class="p">)</span>
+<span class="n">perform_kfold_time_cv</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">look_back</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>9/9 [==============================] - 0s 797us/step
+9/9 [==============================] - 0s 796us/step
+9/9 [==============================] - 0s 753us/step
+9/9 [==============================] - 0s 797us/step
+9/9 [==============================] - 0s 789us/step
+Average MSE: 0.04179868050071998
+Standard Deviation of MSE: 0.0130916440255916
+Average R2: 0.9580985130561276
+Standard Deviation of R2: 0.012806406648096793
+</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[46]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>&lt;keras.src.engine.sequential.Sequential at 0x29f7f61d0&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=93a7b835-c727-4e33-ba49-902b57f09719">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=321b333b-9675-4e01-a686-84bdae3adcc5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=a06e65d0-6f4e-42ee-97bf-b5f3ae06730e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=06ae8c02-103a-4aaa-a780-ac69d18f1fde">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=20611832-03f2-4dcf-be15-d6fda9b5a974">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=2ca538f3-6f39-4cae-a1c6-4d1884840353">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
